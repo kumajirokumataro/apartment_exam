@@ -1,0 +1,25 @@
+<h1>詳細</h1>
+  <div>
+    <h3>物件名</h3>
+    <%= @appartment.name %>
+  </div>
+    <h3>賃料</h3>
+    <%= @appartment.price %>
+    <h3>住所</h3>
+    <%= @appartment.address %>
+    <h3>築年数</h3>
+    <%= @appartment.age %>
+    <h3>備考</h3>
+    <%= @appartment.remarks %>
+
+    <% @appartment.stations.each do |station| %>
+      <h3>路線名</h3>
+      <%= station.route %>
+      <h3>駅</h3>
+      <%= station.station_name %>
+      <h3>徒歩分数</h3>
+      <%= station.time %>
+    <% end %>
+<p>
+<%= link_to "一覧画面にもどる", appartments_path %>
+</p>
