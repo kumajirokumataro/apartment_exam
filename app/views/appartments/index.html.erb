@@ -1,0 +1,26 @@
+<h1>物件一覧</h1>
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>築年数</th>
+    <th>備考</th>
+  </tr>
+
+<% @appartments.each do |appartment| %>
+  <tr>
+    <td><%= appartment.name %></td>
+    <td><%= appartment.price %></td>
+    <td><%= appartment.address %></td>
+    <td><%= appartment.age %></td>
+    <td><%= appartment.remarks %></td>
+
+    <td><%= link_to '詳細', appartment_path(appartment.id) %></td>
+    <td><%= link_to "編集", edit_appartment_path(appartment.id) %></td>
+    <td><%= link_to '削除', appartment_path(appartment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新規投稿する', new_appartment_path %>
